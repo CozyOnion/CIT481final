@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Fetch currency conversion rates using ExchangeRate-API -->
+
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Agency - Start Bootstrap Theme</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
+    <!-- Google fonts-->
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="/public/styles.css" rel="stylesheet" />
+    <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js"></script>
+
+  </head>
+  <body id="page-top">
+     <!-- Include Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js"></script>
+
+    <!-- Include your Firebase configuration and JavaScript code -->
+    <script src="scripts.js"></script>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Away We Go</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarResponsive"
+          aria-controls="navbarResponsive"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          Menu
+          <i class="fas fa-bars ms-1"></i>
+        </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="services.html">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="travel.html">Travel Tips</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Masthead-->
+    <header class="masthead-travel">
+      <div class="container">
+        <div class="travel-subheading text-uppercase">
+          Before You Go!        
+        </div>
+      </div>
+    </header>
+    <section class="page-section" id="services">
+      <div class="container">
+        <h1 class="section-heading text-uppercase col-lg-12">Travel Tips and Laws</h1>
+        <br>
+        <!-- Packing Tips Section -->
+        <div class="points col-lg-12">
+          <h2>Packing Tips</h2>
+          <ul>
+            <li>Make a checklist of essential items.</li>
+            <li>Pack versatile clothing for different occasions.</li>
+            <li>Roll clothes to save space and reduce wrinkles.</li>
+            <li>Use travel-size containers for toiletries.</li>
+            <li>Keep important documents in a secure travel wallet.</li>
+            <li>Check the weather forecast for your destination.</li>
+            <li>Don't forget chargers and adapters for electronic devices.</li>
+          </ul>
+        </div>
+        <br>
+        <!-- Laws About Flying Section -->
+        <div class="points col-lg-12">
+          <h2>Laws About Flying</h2>
+          <p>Before you travel, it's essential to be aware of the laws related to flying. Here are some common regulations:</p>
+          <ul>
+            <li>Follow airline rules and regulations during the flight.</li>
+            <li>Adhere to security protocols at airports.</li>
+            <li>Ensure that your carry-on items comply with size and weight restrictions.</li>
+            <li>Be aware of customs and immigration laws for your destination.</li>
+            <li>Know the rules regarding electronic devices during the flight.</li>
+            <li>Follow any specific guidelines provided by the airline or aviation authorities.</li>
+          </ul>
+        </div>
+        <br>
+        <div class="col-lg-12">
+      <h2>Currency Converter</h2>
+      <p>Current currency conversions for the top 10 currencies:</p>
+      <div id="currency-converter">
+        <!-- Currency conversion rates are hardcoded here -->
+       <p><i class="fa fa-dollar-sign fa-currency"></i> United States Dollar (USD): 1.00</p>
+        <p><i class="fa fa-euro-sign fa-currency"></i> Euro (EUR): 0.85</p>
+        <p><i class="fas fa-yen-sign fa-currency"></i> Japanese Yen (JPY): 112.25</p>
+        <p><i class="fas fa-pound-sign fa-currency"></i> British Pound Sterling (GBP)</p>
+        <p><i class="fas fa-dollar-sign fa-currency"></i> Australian Dollar (AUD): 1.36</p>
+        <p><i class="fas fa-dollar-sign fa-currency"></i> Canadian Dollar (CAD): 1.25</p>
+        <p><i class="fas fa-dollar-sign fa-currency"></i> Swiss Franc (CHF): 0.91</p>
+        <p><i class="fas fa-yen-sign fa-currency"></i> Chinese Yuan (CNY): 6.42</p>
+        <p><i class="fas fa-crown fa-currency"></i> Swedish Krona (SEK): 8.63</p>
+        <p><i class="fas fa-dollar-sign fa-currency"></i> New Zealand Dollar (NZD): 1.49</p>
+      </div>
+    </div>
+    </div>
+    </section>
+    <!-- Footer-->
+    <footer class="footer py-4">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-4 text-lg-start">
+            Copyright &copy; Your Website 2023
+          </div>
+          <div class="col-lg-4 my-3 my-lg-0">
+            <a
+              class="btn btn-dark btn-social mx-2"
+              href="#!"
+              aria-label="Twitter"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a
+              class="btn btn-dark btn-social mx-2"
+              href="#!"
+              aria-label="Facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              class="btn btn-dark btn-social mx-2"
+              href="#!"
+              aria-label="LinkedIn"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+          </div>
+          <div class="col-lg-4 text-lg-end">
+            <a class="link-dark text-decoration-none me-3" href="#!"
+              >Privacy Policy</a
+            >
+            <a class="link-dark text-decoration-none" href="#!">Terms of Use</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Portfolio Modals-->
+    <!-- Portfolio item 1 modal popup-->
+    <div
+      class="portfolio-modal modal fade"
+      id="portfolioModal1"
+      tabindex="-1"
+      role="dialog"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="close-modal" data-bs-dismiss="modal">
+            <img src="assets/img/close-icon.svg" alt="Close modal" />
+          </div>
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <div class="modal-body">
+                  <!-- Project details-->
+                  <h2 class="text-uppercase">Project Name</h2>
+                  <p class="item-intro text-muted">
+                    Lorem ipsum dolor sit amet consectetur.
+                  </p>
+                  <img
+                    class="img-fluid d-block mx-auto"
+                    src="assets/img/portfolio/1.jpg"
+                    alt="..."
+                  />
+                  <p>
+                    Use this area to describe your project. Lorem ipsum dolor
+                    sit amet, consectetur adipisicing elit. Est blanditiis
+                    dolorem culpa incidunt minus dignissimos deserunt repellat
+                    aperiam quasi sunt officia expedita beatae cupiditate,
+                    maiores repudiandae, nostrum, reiciendis facere nemo!
+                  </p>
+                  <ul class="list-inline">
+                    <li>
+                      <strong>Client:</strong>
+                      Threads
+                    </li>
+                    <li>
+                      <strong>Category:</strong>
+                      Illustration
+                    </li>
+                  </ul>
+                  <button
+                    class="btn btn-primary btn-xl text-uppercase"
+                    data-bs-dismiss="modal"
+                    type="button"
+                  >
+                    <i class="fas fa-xmark me-1"></i>
+                    Close Project
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Portfolio item 2 modal popup-->
+    <div
+      class="portfolio-modal modal fade"
+      id="portfolioModal2"
+      tabindex="-1"
+      role="dialog"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="close-modal" data-bs-dismiss="modal">
+            <img src="assets/img/close-icon.svg" alt="Close modal" />
+          </div>
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <div class="modal-body">
+                  <!-- Project details-->
+                  <h2 class="text-uppercase">Project Name</h2>
+                  <p class="item-intro text-muted">
+                    Lorem ipsum dolor sit amet consectetur.
+                  </p>
+                  <img
+                    class="img-fluid d-block mx-auto"
+                    src="assets/img/portfolio/2.jpg"
+                    alt="..."
+                  />
+                  <p>
+                    Use this area to describe your project. Lorem ipsum dolor
+                    sit amet, consectetur adipisicing elit. Est blanditiis
+                    dolorem culpa incidunt minus dignissimos deserunt repellat
+                    aperiam quasi sunt officia expedita beatae cupiditate,
+                    maiores repudiandae, nostrum, reiciendis facere nemo!
+                  </p>
+                  <ul class="list-inline">
+                    <li>
+                      <strong>Client:</strong>
+                      Explore
+                    </li>
+                    <li>
+                      <strong>Category:</strong>
+                      Graphic Design
+                    </li>
+                  </ul>
+                  <button
+                    class="btn btn-primary btn-xl text-uppercase"
+                    data-bs-dismiss="modal"
+                    type="button"
+                  >
+                    <i class="fas fa-xmark me-1"></i>
+                    Close Project
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Portfolio item 3 modal popup-->
+    <div
+      class="portfolio-modal modal fade"
+      id="portfolioModal3"
+      tabindex="-1"
+      role="dialog"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="close-modal" data-bs-dismiss="modal">
+            <img src="assets/img/close-icon.svg" alt="Close modal" />
+          </div>
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <div class="modal-body">
+                  <!-- Project details-->
+                  <h2 class="text-uppercase">Project Name</h2>
+                  <p class="item-intro text-muted">
+                    Lorem ipsum dolor sit amet consectetur.
+                  </p>
+                  <img
+                    class="img-fluid d-block mx-auto"
+                    src="assets/img/portfolio/3.jpg"
+                    alt="..."
+                  />
+                  <p>
+                    Use this area to describe your project. Lorem ipsum dolor
+                    sit amet, consectetur adipisicing elit. Est blanditiis
+                    dolorem culpa incidunt minus dignissimos deserunt repellat
+                    aperiam quasi sunt officia expedita beatae cupiditate,
+                    maiores repudiandae, nostrum, reiciendis facere nemo!
+                  </p>
+                  <ul class="list-inline">
+                    <li>
+                      <strong>Client:</strong>
+                      Finish
+                    </li>
+                    <li>
+                      <strong>Category:</strong>
+                      Identity
+                    </li>
+                  </ul>
+                  <button
+                    class="btn btn-primary btn-xl text-uppercase"
+                    data-bs-dismiss="modal"
+                    type="button"
+                  >
+                    <i class="fas fa-xmark me-1"></i>
+                    Close Project
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Portfolio item 4 modal popup-->
+    <div
+      class="portfolio-modal modal fade"
+      id="portfolioModal4"
+      tabindex="-1"
+      role="dialog"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="close-modal" data-bs-dismiss="modal">
+            <img src="assets/img/close-icon.svg" alt="Close modal" />
+          </div>
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <div class="modal-body">
+                  <!-- Project details-->
+                  <h2 class="text-uppercase">Project Name</h2>
+                  <p class="item-intro text-muted">
+                    Lorem ipsum dolor sit amet consectetur.
+                  </p>
+                  <img
+                    class="img-fluid d-block mx-auto"
+                    src="assets/img/portfolio/4.jpg"
+                    alt="..."
+                  />
+                  <p>
+                    Use this area to describe your project. Lorem ipsum dolor
+                    sit amet, consectetur adipisicing elit. Est blanditiis
+                    dolorem culpa incidunt minus dignissimos deserunt repellat
+                    aperiam quasi sunt officia expedita beatae cupiditate,
+                    maiores repudiandae, nostrum, reiciendis facere nemo!
+                  </p>
+                  <ul class="list-inline">
+                    <li>
+                      <strong>Client:</strong>
+                      Lines
+                    </li>
+                    <li>
+                      <strong>Category:</strong>
+                      Branding
+                    </li>
+                  </ul>
+                  <button
+                    class="btn btn-primary btn-xl text-uppercase"
+                    data-bs-dismiss="modal"
+                    type="button"
+                  >
+                    <i class="fas fa-xmark me-1"></i>
+                    Close Project
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Portfolio item 5 modal popup-->
+    <div
+      class="portfolio-modal modal fade"
+      id="portfolioModal5"
+      tabindex="-1"
+      role="dialog"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="close-modal" data-bs-dismiss="modal">
+            <img src="assets/img/close-icon.svg" alt="Close modal" />
+          </div>
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <div class="modal-body">
+                  <!-- Project details-->
+                  <h2 class="text-uppercase">Project Name</h2>
+                  <p class="item-intro text-muted">
+                    Lorem ipsum dolor sit amet consectetur.
+                  </p>
+                  <img
+                    class="img-fluid d-block mx-auto"
+                    src="assets/img/portfolio/5.jpg"
+                    alt="..."
+                  />
+                  <p>
+                    Use this area to describe your project. Lorem ipsum dolor
+                    sit amet, consectetur adipisicing elit. Est blanditiis
+                    dolorem culpa incidunt minus dignissimos deserunt repellat
+                    aperiam quasi sunt officia expedita beatae cupiditate,
+                    maiores repudiandae, nostrum, reiciendis facere nemo!
+                  </p>
+                  <ul class="list-inline">
+                    <li>
+                      <strong>Client:</strong>
+                      Southwest
+                    </li>
+                    <li>
+                      <strong>Category:</strong>
+                      Website Design
+                    </li>
+                  </ul>
+                  <button
+                    class="btn btn-primary btn-xl text-uppercase"
+                    data-bs-dismiss="modal"
+                    type="button"
+                  >
+                    <i class="fas fa-xmark me-1"></i>
+                    Close Project
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Portfolio item 6 modal popup-->
+    <div
+      class="portfolio-modal modal fade"
+      id="portfolioModal6"
+      tabindex="-1"
+      role="dialog"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="close-modal" data-bs-dismiss="modal">
+            <img src="assets/img/close-icon.svg" alt="Close modal" />
+          </div>
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <div class="modal-body">
+                  <!-- Project details-->
+                  <h2 class="text-uppercase">Project Name</h2>
+                  <p class="item-intro text-muted">
+                    Lorem ipsum dolor sit amet consectetur.
+                  </p>
+                  <img
+                    class="img-fluid d-block mx-auto"
+                    src="assets/img/portfolio/6.jpg"
+                    alt="..."
+                  />
+                  <p>
+                    Use this area to describe your project. Lorem ipsum dolor
+                    sit amet, consectetur adipisicing elit. Est blanditiis
+                    dolorem culpa incidunt minus dignissimos deserunt repellat
+                    aperiam quasi sunt officia expedita beatae cupiditate,
+                    maiores repudiandae, nostrum, reiciendis facere nemo!
+                  </p>
+                  <ul class="list-inline">
+                    <li>
+                      <strong>Client:</strong>
+                      Window
+                    </li>
+                    <li>
+                      <strong>Category:</strong>
+                      Photography
+                    </li>
+                  </ul>
+                  <button
+                    class="btn btn-primary btn-xl text-uppercase"
+                    data-bs-dismiss="modal"
+                    type="button"
+                  >
+                    <i class="fas fa-xmark me-1"></i>
+                    Close Project
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <!-- * *                               SB Forms JS                               * *-->
+    <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+  </body>
+</html>
